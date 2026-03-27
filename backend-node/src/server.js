@@ -28,8 +28,8 @@ app.post("/transform", upload.single("resume"), async (req, res) => {
 
     try {
         const resumeText = await extractTextFromPDF(req.file.buffer);
-        const parsed = parseResume(resumeText);
-        const result = await transformResume(JSON.stringify(parsed));
+        const cleaned = parseResume(resumeText);
+        const result = await transformResume(cleaned);
 
         res.json({ result });
     } catch (err) {

@@ -1,27 +1,15 @@
-export function parseResume(resumeText) {
+export function parseResume(text) {
 
-  const skills = [];
-  const skillKeywords = ["python", "react", "java", "machine learning", "sql", "C", "C++", "next.js", "javascript"];
+  let cleanedText = text
+    .replace(/\r\n/g, "\n")           // normalize line endings
+    .replace(/\t/g, " ")              // tabs to spaces
+    .replace(/[^\S\n]+/g, " ")        // collapse multiple spaces (but keep newlines)
+    .replace(/\n{3,}/g, "\n\n")       // collapse 3+ blank lines into 2
+    .replace(/[•·▪▸►‣⁃]/g, "- ")     // normalize bullet characters
+    .trim();
 
-  skillKeywords.forEach(skill => {
-    if (text.includes(skill)) {
-      skills.push(skill);
-    }
-  });
+    cleaned = cleaned.replace(/page\s*\d+\s*(of\s*\d+)?/gi, "");
 
-  let company = null;
-  let years = null;
+    return cleanedText;
 
-  const companyMatch = text.match(/at\s([A-Z][a-zA-Z]+)/);
-  if (companyMatch) company = companyMatch[1];
-
-  const yearMatch = text.match(/(20\d{2}).*(20\d{2})/);
-  if (yearMatch) years = `${yearMatch[1]}-${yearMatch[2]}`;
-
-  return {
-    skills,
-    company,
-    years,
-    raw: text
-  };
 }
