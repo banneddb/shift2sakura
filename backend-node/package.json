@@ -8,12 +8,10 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "dev" : "nodemon src/server.js"
+    "dev": "nodemon src/server.js"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pdf-parse": "^1.1.1"
   }
-
-  
-  
 }

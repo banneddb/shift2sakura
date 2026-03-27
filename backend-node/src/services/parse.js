@@ -1,6 +1,6 @@
 export function parseResume(text) {
 
-  let cleanedText = text
+  let cleaned = text
     .replace(/\r\n/g, "\n")           // normalize line endings
     .replace(/\t/g, " ")              // tabs to spaces
     .replace(/[^\S\n]+/g, " ")        // collapse multiple spaces (but keep newlines)
