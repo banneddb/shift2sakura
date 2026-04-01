@@ -5,7 +5,9 @@ import { upload } from "./middleware/upload.middleware.js";
 import { extractTextFromPDF } from "./services/pdf.js";
 import { transformResume } from "./services/ai.js";
 import { parseResume } from "./services/parse.js";
+import { PrismaClient } from "@prisma/client";
 
+const prisma = new PrismaClient();
 dotenv.config();
 
 const app = express();
