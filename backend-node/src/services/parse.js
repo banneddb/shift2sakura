@@ -10,6 +10,6 @@ export function parseResume(text) {
 
     cleaned = cleaned.replace(/page\s*\d+\s*(of\s*\d+)?/gi, "");
 
-    return cleanedText;
+    return cleaned;
 
 }

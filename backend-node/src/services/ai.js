@@ -65,11 +65,20 @@ ${resumeText}
     const data = await response.json();
 
     // Parse the AI's JSON response
-    try {
-        const parsed = JSON.parse(data.response); // <-- AI generated the structure of the JSON file, but we still need a JSON to return.
-        return parsed;
-    } catch (e) {
-        console.error("AI returned invalid JSON:", data.response);
-        return { raw: data.response, error: "AI output was not valid JSON" };
-    }
+  try {
+    let cleanedResponse = data.response;
+    cleanedResponse = cleanedResponse.substring(
+        cleanedResponse.indexOf("{"),
+        cleanedResponse.lastIndexOf("}") + 1
+    );
+    cleanedResponse = cleanedResponse.replace(/\/\/.*$/gm, "");
+    
+    
+    const parsed = JSON.parse(cleanedResponse);
+    return parsed;
+} catch (e) {
+    console.error("Parse error:", e.message);
+    console.error("AI returned invalid JSON:", data.response);
+    return { raw: data.response, error: "AI output was not valid JSON" };
+}
 }

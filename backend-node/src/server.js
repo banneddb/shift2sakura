@@ -27,15 +27,23 @@ app.post("/transform", upload.single("resume"), async (req, res) => {
     }
 
     try {
-        const resumeText = await extractTextFromPDF(req.file.buffer);
-        const cleaned = parseResume(resumeText);
-        const result = await transformResume(cleaned);
+    console.log("Step 1: Extracting text from PDF...");
+    const resumeText = await extractTextFromPDF(req.file.buffer);
+    console.log("Extracted text:", resumeText.substring(0, 200));
 
-        res.json({ result });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Processing failed" });
-    }
+    console.log("Step 2: Cleaning text...");
+    const cleaned = parseResume(resumeText);
+    console.log("Cleaned text:", cleaned.substring(0, 200));
+
+    console.log("Step 3: Sending to AI...");
+    const result = await transformResume(cleaned);
+    console.log("AI result:", result);
+
+    res.json({ result });
+} catch (err) {
+    console.error("FULL ERROR:", err);
+    res.status(500).json({ error: "Processing failed" });
+}
 });
 
 app.listen(PORT, () => {
