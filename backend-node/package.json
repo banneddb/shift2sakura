@@ -11,7 +11,13 @@
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
+    "@prisma/client": "^7.6.0",
     "express": "^5.2.1",
     "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "dotenv": "^17.3.1",
+    "prisma": "^7.6.0"
   }
 }
