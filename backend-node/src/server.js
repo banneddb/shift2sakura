@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { upload } from "./middleware/upload.middleware.js";
-import { extractTextFromPDF } from "./services/pdf.js";
+import { extractTextFromPDF } from "./services/extractText.js";
 import { transformResume } from "./services/ai.js";
-import { parseResume } from "./services/parse.js";
+import { parseResume } from "./services/cleanResume.js";
 // import pkg from "@prisma/client";
 import { errorHandler } from "./middleware/error.middleware.js";
 import { generateRirekishoPDF } from "./services/convert.js";
@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
 });
 
 // upload.single("resume") tells multer to expect a file field named "resume"
-app.post("/transform", upload.single("resume"), async (req, res, next) => {
-    console.log("POST /transform hit");
+app.post("/prase", upload.single("resume"), async (req, res, next) => {
+    console.log("POST /prase hit");
 
     if (!req.file) {
         return res.status(400).json({ error: "No resume detected!" });
@@ -58,8 +58,8 @@ app.post("/transform", upload.single("resume"), async (req, res, next) => {
     }
 });
 
-app.post("/convert", async (req, res, next) => {
-    console.log("POST /convert hit");
+app.post("/generatePDF", async (req, res, next) => {
+    console.log("POST /generatePDF hit");
     
     const resumeData = req.body;
 
