@@ -5,12 +5,12 @@ import { upload } from "./middleware/upload.middleware.js";
 import { extractTextFromPDF } from "./services/pdf.js";
 import { transformResume } from "./services/ai.js";
 import { parseResume } from "./services/parse.js";
-import { PrismaClient } from "@prisma/client";
+// import pkg from "@prisma/client";
 import { errorHandler } from "./middleware/error.middleware.js";
 import { generateRirekishoPDF } from "./services/convert.js";
 
-
-const prisma = new PrismaClient();
+// const { PrismaClient } = pkg;
+// const prisma = new PrismaClient();
 dotenv.config();
 
 const app = express();
@@ -58,7 +58,7 @@ app.post("/transform", upload.single("resume"), async (req, res, next) => {
     }
 });
 
-app.post("/convert", async (req, res, next)) => {
+app.post("/convert", async (req, res, next) => {
     console.log("POST /convert hit");
     
     const resumeData = req.body;
@@ -68,7 +68,7 @@ app.post("/convert", async (req, res, next)) => {
     }
 
     try {
-        const pdfBudder = await generateRirekishoPDF(resumeData);
+        const pdfBuffer = await generateRirekishoPDF(resumeData);
 
         res.set ({
             "Content-Type": "application/pdf",
@@ -78,7 +78,7 @@ app.post("/convert", async (req, res, next)) => {
     } catch (err) {
         next(err);
     }
-}
+});
 
 app.use(errorHandler);
 
