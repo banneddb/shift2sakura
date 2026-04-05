@@ -72,7 +72,7 @@ export async function generateRirekishoPDF(resumeData) {
         args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     const page = await browser.newPage();
-    await page.setContent(template, { waitUntil: "networkidle0" });
+    await page.setContent(template, { waitUntil: "domcontentloaded" });
 
     const pdfBuffer = await page.pdf({
         format: "A4",
