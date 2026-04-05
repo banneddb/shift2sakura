@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
 });
 
 // upload.single("resume") tells multer to expect a file field named "resume"
-app.post("/prase", upload.single("resume"), async (req, res, next) => {
-    console.log("POST /prase hit");
+app.post("/extractText", upload.single("resume"), async (req, res, next) => {
+    console.log("POST /extractText hit");
 
     if (!req.file) {
         return res.status(400).json({ error: "No resume detected!" });
@@ -58,8 +58,8 @@ app.post("/prase", upload.single("resume"), async (req, res, next) => {
     }
 });
 
-app.post("/generatePDF", async (req, res, next) => {
-    console.log("POST /generatePDF hit");
+app.post("/generateResume", async (req, res, next) => {
+    console.log("POST /generateResume hit");
     
     const resumeData = req.body;
 
