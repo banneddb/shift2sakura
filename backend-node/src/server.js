@@ -7,6 +7,8 @@ import { transformResume } from "./services/ai.js";
 import { parseResume } from "./services/parse.js";
 import { PrismaClient } from "@prisma/client";
 import { errorHandler } from "./middleware/error.middleware.js";
+import { generateRirekishoPDF } from "./services/convert.js";
+
 
 const prisma = new PrismaClient();
 dotenv.config();
@@ -55,6 +57,28 @@ app.post("/transform", upload.single("resume"), async (req, res, next) => {
         next(err);
     }
 });
+
+app.post("/convert", async (req, res, next)) => {
+    console.log("POST /convert hit");
+    
+    const resumeData = req.body;
+
+    if (!resumeData || !resumeData.氏名) {
+        return res.status(400).json({ error: "No resume data provided"});
+    }
+
+    try {
+        const pdfBudder = await generateRirekishoPDF(resumeData);
+
+        res.set ({
+            "Content-Type": "application/pdf",
+            "Content-Disposition": "attachment; filename=rirekisho.pdf"
+        });
+        res.send(pdfBuffer);
+    } catch (err) {
+        next(err);
+    }
+}
 
 app.use(errorHandler);
 
