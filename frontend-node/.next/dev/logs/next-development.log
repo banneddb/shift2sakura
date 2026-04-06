@@ -1,3 +1,117 @@
-[00:00:00.744] Server  LOG     ✓ Ready in 592ms
-[00:00:01.996] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
-[00:00:04.408] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:00:02.887] Server  LOG     ✓ Ready in 2.4s
+[00:01:28.313] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:36:30 GMT, Current date: Mon, 06 Apr 2026 12:36:35 GMT. (reason=token-expired, token-carrier=cookie)
+[00:01:28.587] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:36:30 GMT, Current date: Mon, 06 Apr 2026 12:36:36 GMT. (reason=token-expired, token-carrier=cookie)
+[00:01:28.896] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:36:30 GMT, Current date: Mon, 06 Apr 2026 12:36:36 GMT. (reason=token-expired, token-carrier=cookie)
+[00:01:28.926] Server  LOG     Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+[00:01:30.722] Server  LOG     
+
+[Clerk]: You are running in keyless mode.
+You can claim your keys by visiting https://dashboard.clerk.com/apps/claim?framework=nextjs&token=ysd56wt9ysatnywpwhjs20nr4i7her7n80hcjfpc&return_url=http%3A%2F%2Flocalhost%3A3000%2F
+
+[00:01:31.809] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:32.051] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:03:06.076] Server  LOG     ✓ Compiled in 1411ms
+[00:03:18.810] Server  LOG     ✓ Compiled in 69ms
+[00:03:27.070] Server  LOG     ✓ Compiled in 49ms
+[00:03:34.893] Server  LOG     ✓ Compiled in 106ms
+[00:03:36.789] Browser WARN    Image with src "/hamza.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:36.895] Browser WARN    Image with src "/behruz.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:44.409] Server  LOG     ✓ Compiled in 297ms
+[00:05:39.669] Browser ERROR   ./frontend-node/app/team/page.tsx:11:23
+Parsing ecmascript source code failed
+   9 |       </p>
+  10 |       <h1 className="mb-16 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight">
+> 11 |         <em className=Hamza</em> and{" "}
+     |                       ^^^^^
+  12 |         <em className="italic text-[#e8759a]">Behruz</em>
+  13 |       </h1>
+  14 |
+
+Expected '</', got 'ident'
+[00:05:43.106] Server  LOG     ✓ Compiled in 37ms
+[00:05:49.669] Browser ERROR   ./frontend-node/app/team/page.tsx:11:23
+Parsing ecmascript source code failed
+   9 |       </p>
+  10 |       <h1 className="mb-16 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight">
+> 11 |         <em className=Hamza</em> and{" "}
+     |                       ^^^^^
+  12 |         <em className="italic text-[#e8759a]">Behruz</em>
+  13 |       </h1>
+  14 |
+
+Expected '</', got 'ident'
+[00:05:51.681] Browser ERROR   ./frontend-node/app/team/page.tsx:11:24
+Parsing ecmascript source code failed
+   9 |       </p>
+  10 |       <h1 className="mb-16 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight">
+> 11 |         <em className= Hamza</em> and{" "}
+     |                        ^^^^^
+  12 |         <em className="italic text-[#e8759a]">Behruz</em>
+  13 |       </h1>
+  14 |
+
+Expected '</', got 'ident'
+[00:05:54.753] Server  LOG     ✓ Compiled in 43ms
+[00:06:11.920] Browser ERROR   ./frontend-node/app/team/page.tsx:12:12
+Parsing ecmascript source code failed
+  10 |       <h1 className="mb-16 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight">
+  11 |         <em className="italic text-[#e8759a]">Meet the Team
+> 12 |       </h1>
+     |            ^
+> 13 |
+     | ^
+> 14 |       {/* Team grid */}
+     | ^^^^^^^
+  15 |       <div className="grid grid-cols-2 gap-16">
+  16 |
+  17 |         {/* Hamza */}
+
+Expected '</', got 'jsx text'
+[00:06:20.669] Browser ERROR   ./frontend-node/app/team/page.tsx:12:12
+Parsing ecmascript source code failed
+  10 |       <h1 className="mb-16 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight">
+  11 |         <em className="italic text-[#e8759a]">Meet the Team <em></em>
+> 12 |       </h1>
+     |            ^
+> 13 |
+     | ^
+> 14 |       {/* Team grid */}
+     | ^^^^^^^
+  15 |       <div className="grid grid-cols-2 gap-16">
+  16 |
+  17 |         {/* Hamza */}
+
+Expected '</', got 'jsx text'
+[00:06:23.585] Server  LOG     ✓ Compiled in 22ms
+[00:06:29.792] Server  LOG     ✓ Compiled in 30ms
+[00:06:50.684] Browser ERROR   ./frontend-node/app/team/page.tsx:15:46
+Parsing ecmascript source code failed
+  13 |
+  14 |       {/* Team grid */}
+> 15 |       <div className="grid grid-cols-2 gap-16">
+     |                                              ^^
+  16 |
+  17 |         {/* Hamza */}
+  18 |         <div className="flex flex-col gap-5">
+
+Unterminated string constant
+[00:06:55.456] Server  LOG     ✓ Compiled in 38ms
+[00:07:10.330] Server  LOG     ✓ Compiled in 91ms

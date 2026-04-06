@@ -109,7 +109,7 @@ export default function MyResumes() {
       </p>
 
       <h1 className="mb-3 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-tight tracking-tight">
-        Your past <em className="italic text-[#993556]">conversions.</em>
+        Your past <em className="italic text-[#e8759a]">conversions.</em>
       </h1>
 
       <p className="mb-8 text-sm text-gray-400">

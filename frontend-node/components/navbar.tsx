@@ -9,7 +9,7 @@ export default function Navbar() {
         href="/"
         className="text-[25px] font-semibold tracking-tight text-gray-900"
       >
-        Shift<em className="italic text-[#993556]">2</em>Sakura
+        Shift<em className=" italic text-[#e8759a]"> 2 </em>Sakura
       </Link>
 
       <div className="flex items-center gap-1">
@@ -49,7 +49,7 @@ export default function Navbar() {
             </button>
           </SignInButton>
           <SignUpButton>
-            <button className="rounded-lg bg-[#993556] px-4 py-1.5 text-lg font-medium text-white hover:bg-[#7a2843] transition-colors">
+            <button className="rounded-lg bg-[#e8759a] px-4 py-1.5 text-lg font-medium text-white hover:bg-[#7a2843] transition-colors">
               Sign Up
             </button>
           </SignUpButton>

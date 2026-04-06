@@ -115,7 +115,7 @@ export default function ResumeConverter() {
       </p>
       <h1 className="mb-12 font-serif text-[clamp(2.2rem,5vw,4rem)] font-black leading-tight tracking-tight">
         Turn your resume into{" "}
-        <em className="italic text-[#993556]">something they'll read.</em>
+        something <em className="italic text-[#e8759a]"> they will read.</em>
       </h1>
 
       <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-gray-200">
