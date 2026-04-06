@@ -17,7 +17,7 @@ Rules:
 - Output bullet points only, no intro or outro text
 - Be specific to their background and this job posting
 - Each bullet point should start with "•"
-`;
+`
 
   const response = await fetch("http://localhost:11434/api/generate", {
     method: "POST",
