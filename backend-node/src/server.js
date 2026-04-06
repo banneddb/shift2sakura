@@ -15,7 +15,10 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3001", "http://localhost:3000"],
+  methods: ["GET", "POST"],
+}));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -26,8 +29,6 @@ app.get("/", (req, res) => {
 app.post("/extractText", upload.single("resume"), extractAndClean);
 
 app.post("/generateResume", generateResume);
-
-app.post("/advice", );
 
 app.use(errorHandler);
 

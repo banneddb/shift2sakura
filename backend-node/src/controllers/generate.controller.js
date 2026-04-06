@@ -1,4 +1,4 @@
-import { generateRirekishoPDF } from "../services/convertToRirekisho";
+import { generateRirekishoPDF } from "../services/convertToRirekisho.js";
 
 export async function generateResume(req,res,next) {
         console.log("POST /generateResume hit");
