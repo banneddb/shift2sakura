@@ -12,8 +12,8 @@ export function ResumeCompare() {
 
       <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4">
         <Compare
-          firstImage="https://placehold.co/500x700/f5f5f5/cccccc?text=Western+Resume"
-          secondImage="https://placehold.co/500x700/fff0f5/e8759a?text=履歴書"
+          firstImage="/behruz_resume.png"
+          secondImage="/japanese_resume.png"
           firstImageClassName="object-cover object-left-top"
           secondImageClassname="object-cover object-left-top"
           className="h-[400px] w-[340px] md:h-[600px] md:w-[500px]"
