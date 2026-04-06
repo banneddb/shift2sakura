@@ -26,10 +26,10 @@ export default function Navbar() {
           Resume Converter
         </Link>
         <Link
-          href="/job-listings"
+          href="/my-resumes"
           className="rounded-lg px-4 py-1.5 text-lg font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
         >
-          Job Listings
+          My Resumes
         </Link>
         <Link
           href="/team"

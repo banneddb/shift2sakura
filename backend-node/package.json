@@ -11,9 +11,13 @@
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
+    "@clerk/express": "^2.0.8",
+    "@prisma/adapter-pg": "^7.6.0",
     "@prisma/client": "^7.6.0",
     "express": "^5.2.1",
+    "multer": "^2.1.1",
     "pdf-parse": "^1.1.1",
+    "pg": "^8.20.0",
     "puppeteer": "^24.40.0"
   },
   "devDependencies": {

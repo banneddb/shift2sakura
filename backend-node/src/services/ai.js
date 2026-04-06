@@ -1,6 +1,5 @@
 export async function transformResume(resumeText) {
-
-    const prompt = `
+  const prompt = `
 あなたは日本の就職活動専門アシスタントです。
 以下の英語の履歴書を読み、日本式の履歴書に必要な情報を抽出し、日本語に翻訳してください。
 
@@ -49,47 +48,48 @@ export async function transformResume(resumeText) {
 ${resumeText}
 `;
 
-    const response = await fetch("http://localhost:11434/api/generate", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            model: "llama3",
-            prompt,
-            stream: false,
-            temperature: 0.2,
-            options: {
-              num_predict: 2048
-            }
-        })
+  const response = await fetch("http://localhost:11434/api/generate", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "llama3",
+      prompt,
+      stream: false,
+      temperature: 0.2,
+      options: {
+        num_predict: 2048,
+      },
+    }),
+  });
 
-        
-    });
+  const data = await response.json();
 
-    const data = await response.json();
-
-    // Parse the AI's JSON response
+  // Parse the AI's JSON response
   try {
     let cleanedResponse = data.response;
     cleanedResponse = cleanedResponse.substring(
-        cleanedResponse.indexOf("{"),
-        cleanedResponse.lastIndexOf("}") + 1
+      cleanedResponse.indexOf("{"),
+      cleanedResponse.lastIndexOf("}") + 1,
     );
     cleanedResponse = cleanedResponse.replace(/\/\/.*$/gm, "");
-    
-  // Fix unbalanced braces (AI sometimes cuts off)
-  const openBraces = (cleanedResponse.match(/{/g) || []).length;
-  const closeBraces = (cleanedResponse.match(/}/g) || []).length;
-  for (let i = 0; i < openBraces - closeBraces; i++) {
-    cleanedResponse += "}"; }
+    cleanedResponse = cleanedResponse.replace(/:\s*,/g, ': "",');
+    cleanedResponse = cleanedResponse.replace(/:\s*\n/g, ': ""\n');
+    cleanedResponse = cleanedResponse.replace(/:\s*}/g, ': ""}');
 
-  
-  const parsed = JSON.parse(cleanedResponse);
-  return parsed;
-} catch (e) {
+    // Fix unbalanced braces (AI sometimes cuts off)
+    const openBraces = (cleanedResponse.match(/{/g) || []).length;
+    const closeBraces = (cleanedResponse.match(/}/g) || []).length;
+    for (let i = 0; i < openBraces - closeBraces; i++) {
+      cleanedResponse += "}";
+    }
+
+    const parsed = JSON.parse(cleanedResponse);
+    return parsed;
+  } catch (e) {
     console.error("Parse error:", e.message);
     console.error("AI returned invalid JSON:", data.response);
     return { raw: data.response, error: "AI output was not valid JSON" };
-}
+  }
 }
