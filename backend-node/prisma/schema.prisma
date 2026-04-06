@@ -6,22 +6,10 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String   // hashed password
-  createdAt DateTime @default(now())
-
-  resumes   Resume[]
-}
-
 model Resume {
   id        Int      @id @default(autoincrement())
+  userId    String
   original  String
-  cleaned   String
   result    String
   createdAt DateTime @default(now())
-
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
 }
