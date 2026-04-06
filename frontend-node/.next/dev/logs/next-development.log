@@ -115,3 +115,51 @@ Parsing ecmascript source code failed
 Unterminated string constant
 [00:06:55.456] Server  LOG     ✓ Compiled in 38ms
 [00:07:10.330] Server  LOG     ✓ Compiled in 91ms
+[00:08:23.023] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:43:24 GMT, Current date: Mon, 06 Apr 2026 12:43:30 GMT. (reason=token-expired, token-carrier=cookie)
+[00:08:23.297] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:43:25 GMT, Current date: Mon, 06 Apr 2026 12:43:30 GMT. (reason=token-expired, token-carrier=cookie)
+[00:08:23.575] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:43:25 GMT, Current date: Mon, 06 Apr 2026 12:43:31 GMT. (reason=token-expired, token-carrier=cookie)
+[00:08:23.620] Server  LOG     Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+[00:08:24.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:24.912] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
+[00:08:33.310] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:43:34 GMT, Current date: Mon, 06 Apr 2026 12:43:40 GMT. (reason=token-expired, token-carrier=cookie)
+[00:08:33.739] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:43:35 GMT, Current date: Mon, 06 Apr 2026 12:43:41 GMT. (reason=token-expired, token-carrier=cookie)
+[00:08:34.263] Server  ERROR   Clerk: Clock skew detected. This usually means that your system clock is inaccurate. Clerk will attempt to account for the clock skew in development.
+
+To resolve this issue, make sure your system's clock is set to the correct time (e.g. turn off and on automatic time synchronization).
+
+---
+
+JWT is expired. Expiry date: Mon, 06 Apr 2026 12:43:35 GMT, Current date: Mon, 06 Apr 2026 12:43:41 GMT. (reason=token-expired, token-carrier=cookie)
+[00:08:34.323] Server  LOG     Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+[00:08:36.294] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:37.670] Browser WARN    Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview
