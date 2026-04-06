@@ -159,33 +159,115 @@ URL.revokeObjectURL(url);
 
 ### Prerequisites
 - Node.js v18+
-- Ollama is installed and running (https://ollama.com)
+- PostgreSQL running locally (or a hosted instance e.g. Supabase)
+- Ollama installed and running — https://ollama.com
 - Llama3 model pulled in Ollama
+- A Clerk account — https://clerk.com (free)
+
+---
 
 ### 1. Clone the repo
+```bash
 git clone https://github.com/banneddb/shift2sakura.git
 cd shift2sakura
+git checkout dev
+```
+
+---
 
 ### 2. Install Ollama and pull Llama3
+```bash
 ollama pull llama3
 ollama serve
+```
+Ollama must be running on http://localhost:11434 before starting the backend.
+
+---
 
 ### 3. Set up the backend
+
+```bash
 cd backend-node
 npm install
+```
 
-Create a .env file in backend-node/:
-PORT=3000
+Create a `.env` file inside `backend-node/`:
+```
+CLERK_SECRET_KEY=your_clerk_secret_key
+DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/shift2sakura
+```
+
+Run Prisma migrations to set up the database:
+```bash
+npx prisma migrate deploy
+```
 
 Start the backend:
+```bash
 npm run dev
+```
+Backend runs on http://localhost:3000
+
+---
 
 ### 4. Set up the frontend
+
+```bash
 cd ../frontend-node
 npm install
-npm run dev
+```
 
-The frontend runs on http://localhost:3001, the backend on http://localhost:3000.
+Create a `.env.local` file inside `frontend-node/`:
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+Create the Clerk sign-in page at `app/sign-in/[[...sign-in]]/page.tsx`:
+```tsx
+import { SignIn } from "@clerk/nextjs";
+export default function Page() {
+  return <div className="flex justify-center py-20"><SignIn /></div>;
+}
+```
+
+Create the Clerk sign-up page at `app/sign-up/[[...sign-up]]/page.tsx`:
+```tsx
+import { SignUp } from "@clerk/nextjs";
+export default function Page() {
+  return <div className="flex justify-center py-20"><SignUp /></div>;
+}
+```
+
+Start the frontend:
+```bash
+npm run dev -- -p 3001
+```
+Frontend runs on http://localhost:3001
+
+---
+
+### 5. Clerk Dashboard setup
+
+In your Clerk dashboard (dashboard.clerk.com):
+- Go to Settings → Paths
+- Set Sign-in URL to `/sign-in`
+- Set Sign-up URL to `/sign-up`
+- Set after sign-in redirect to `/`
+- Set after sign-up redirect to `/`
+- Under Domains, make sure `http://localhost:3001` is listed
+
+---
+
+### Getting Clerk API keys
+
+1. Go to https://dashboard.clerk.com
+2. Create a new application (or use existing)
+3. Go to API Keys
+4. Copy the Publishable Key and Secret Key into your `.env.local` and `.env` files
 
 ---
 
