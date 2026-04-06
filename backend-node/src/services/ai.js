@@ -58,8 +58,13 @@ ${resumeText}
             model: "llama3",
             prompt,
             stream: false,
-            temperature: 0.2
+            temperature: 0.2,
+            options: {
+              num_predict: 2048
+            }
         })
+
+        
     });
 
     const data = await response.json();
@@ -73,9 +78,15 @@ ${resumeText}
     );
     cleanedResponse = cleanedResponse.replace(/\/\/.*$/gm, "");
     
-    
-    const parsed = JSON.parse(cleanedResponse);
-    return parsed;
+  // Fix unbalanced braces (AI sometimes cuts off)
+  const openBraces = (cleanedResponse.match(/{/g) || []).length;
+  const closeBraces = (cleanedResponse.match(/}/g) || []).length;
+  for (let i = 0; i < openBraces - closeBraces; i++) {
+    cleanedResponse += "}"; }
+
+  
+  const parsed = JSON.parse(cleanedResponse);
+  return parsed;
 } catch (e) {
     console.error("Parse error:", e.message);
     console.error("AI returned invalid JSON:", data.response);
