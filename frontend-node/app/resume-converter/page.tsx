@@ -124,7 +124,7 @@ export default function ResumeConverter() {
           <label className="flex cursor-pointer flex-col items-center gap-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-8 text-center hover:bg-gray-100 transition-colors">
             <input
               type="file"
-              accept=".pdf,.docx"
+              accept=".pdf"
               className="hidden"
               onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             />

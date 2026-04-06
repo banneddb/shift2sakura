@@ -221,25 +221,7 @@ Create a `.env.local` file inside `frontend-node/`:
 ```
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_API_URL=http://localhost:3000
-```
-
-Create the Clerk sign-in page at `app/sign-in/[[...sign-in]]/page.tsx`:
-```tsx
-import { SignIn } from "@clerk/nextjs";
-export default function Page() {
-  return <div className="flex justify-center py-20"><SignIn /></div>;
-}
-```
-
-Create the Clerk sign-up page at `app/sign-up/[[...sign-up]]/page.tsx`:
-```tsx
-import { SignUp } from "@clerk/nextjs";
-export default function Page() {
-  return <div className="flex justify-center py-20"><SignUp /></div>;
-}
 ```
 
 Start the frontend:
@@ -250,17 +232,7 @@ Frontend runs on http://localhost:3001
 
 ---
 
-### 5. Clerk Dashboard setup
-
-In your Clerk dashboard (dashboard.clerk.com):
-- Go to Settings → Paths
-- Set Sign-in URL to `/sign-in`
-- Set Sign-up URL to `/sign-up`
-- Set after sign-in redirect to `/`
-- Set after sign-up redirect to `/`
-- Under Domains, make sure `http://localhost:3001` is listed
-
----
+### 5. Clerk API keys
 
 ### Getting Clerk API keys
 
