@@ -207,6 +207,7 @@ npm install
 Create a `.env` file inside `backend-node/`:
 ```
 CLERK_SECRET_KEY=your_clerk_secret_key
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/shift2sakura
 ```
 
