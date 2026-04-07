@@ -147,7 +147,7 @@ export default function ResumeConverter() {
                   </span>{" "}
                   or drag & drop
                   <br />
-                  PDF or DOCX
+                  PDF only
                 </>
               )}
             </span>
