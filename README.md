@@ -159,10 +159,26 @@ URL.revokeObjectURL(url);
 
 ### Prerequisites
 - Node.js v18+
-- PostgreSQL running locally (or a hosted instance e.g. Supabase)
+- PostgreSQL — https://www.postgresql.org/download (or a hosted instance e.g. Supabase)
 - Ollama installed and running — https://ollama.com
 - Llama3 model pulled in Ollama
 - A Clerk account — https://clerk.com (free)
+
+### 0. Install and start PostgreSQL
+
+**Mac:**
+```bash
+brew install postgresql
+brew services start postgresql
+```
+
+**Windows:** Download and run the installer from https://www.postgresql.org/download/windows
+
+**Linux:**
+```bash
+sudo apt install postgresql
+sudo service postgresql start
+```
 
 ---
 
