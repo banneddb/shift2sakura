@@ -286,5 +286,5 @@ Frontend runs on http://localhost:3001
 ---
 
 ## Team
-Hamza Mustafa - Frontend and Database
+Hamza Mustafa - Frontend and Database ||
 Behruz Omonullaev - Backend and AI
