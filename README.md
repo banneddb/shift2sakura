@@ -43,7 +43,7 @@ User downloads rirekisho.pdf
 
 ### Architecture
 
-The backend is **stateless** — it does not store resume data between requests. The frontend holds the `result` JSON in React state between the `/extractText` and `/generateResume` calls.
+The backend saves each generated resume to PostgreSQL via Prisma. The frontend holds the `result` JSON in React state between the `/extractText` and `/generateResume` calls.
 
 ---
 
@@ -81,8 +81,6 @@ shift2sakura/
     │   ├── globals.css                      # Global styles
     │   ├── resume-converter/
     │   │   └── page.tsx                     # Main resume upload and conversion flow
-    │   ├── job-listings/
-    │   │   └── page.tsx                     # Job listings page
     │   └── team/
     │       └── page.tsx                     # Team page
     └── components/
@@ -212,6 +210,10 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/shift2sakura
 ```
 
+Replace `USER` and `PASSWORD` with your PostgreSQL credentials:
+- **Mac** (Homebrew): default user is your macOS username, no password — e.g. `postgresql://john@localhost:5432/shift2sakura`
+- **Windows/Linux**: default user is `postgres` with the password set during install — e.g. `postgresql://postgres:yourpassword@localhost:5432/shift2sakura`
+
 Create the database:
 ```bash
 createdb shift2sakura
@@ -253,9 +255,7 @@ Frontend runs on http://localhost:3001
 
 ---
 
-### 5. Clerk API keys
-
-### Getting Clerk API keys
+### 5. Getting Clerk API keys
 
 1. Go to https://dashboard.clerk.com
 2. Create a new application (or use existing)
