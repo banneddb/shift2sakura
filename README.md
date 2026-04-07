@@ -170,7 +170,6 @@ URL.revokeObjectURL(url);
 ```bash
 git clone https://github.com/banneddb/shift2sakura.git
 cd shift2sakura
-git checkout dev
 ```
 
 ---
@@ -197,9 +196,15 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/shift2sakura
 ```
 
-Run Prisma migrations to set up the database:
+Create the database:
+```bash
+createdb shift2sakura
+```
+
+Run Prisma migrations and generate the client:
 ```bash
 npx prisma migrate deploy
+npx prisma generate
 ```
 
 Start the backend:
